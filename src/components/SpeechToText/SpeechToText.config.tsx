@@ -1,6 +1,6 @@
 import { EComponentKind, T4DComponentConfig } from '@ws-ui/webform-editor';
 import { Settings } from '@ws-ui/webform-editor';
-import { MdOutlineTextSnippet } from 'react-icons/md';
+import { SlSpeech } from "react-icons/sl";
 
 import SpeechToTextSettings, { BasicSettings } from './SpeechToText.settings';
 
@@ -21,7 +21,7 @@ export default {
     settings: SpeechToTextSettings,
     displayName: 'SpeechToText',
     exposed: true,
-    icon: MdOutlineTextSnippet,
+    icon: SlSpeech,
     events: [
       {
         label: 'On Click',
