@@ -57,7 +57,6 @@ export default {
     },
   },
   defaultProps: {
-    name: 'Qodly',
     style:{
       width: 'fit-content',
     }
@@ -65,5 +64,5 @@ export default {
 } as T4DComponentConfig<ISpeechToTextProps>;
 
 export interface ISpeechToTextProps extends webforms.ComponentProps {
-  name?: string;
+  language?: string;
 }

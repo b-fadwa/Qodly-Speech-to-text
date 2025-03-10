@@ -6,7 +6,7 @@ import { ISpeechToTextProps } from './SpeechToText.config';
 import { FaMicrophone } from 'react-icons/fa';
 import { FaMicrophoneLinesSlash } from 'react-icons/fa6';
 
-const SpeechToText: FC<ISpeechToTextProps> = ({ style, className, classNames = [] }) => {
+const SpeechToText: FC<ISpeechToTextProps> = ({ language,style, className, classNames = [] }) => {
   const { connect } = useRenderer();
   const [isListening, setIsListening] = useState<boolean>(false);
   const [transcript, setTranscript] = useState<string>('');
@@ -27,7 +27,7 @@ const SpeechToText: FC<ISpeechToTextProps> = ({ style, className, classNames = [
 
     recognitionInstance.continuous = true;
     recognitionInstance.interimResults = true;
-    recognitionInstance.lang = 'en-US'; //maybe use a property here for language
+    recognitionInstance.lang = language; 
 
     recognitionInstance.onresult = (event: any) => {
       let finalTranscript = '';

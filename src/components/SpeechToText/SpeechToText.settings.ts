@@ -3,10 +3,12 @@ import { BASIC_SETTINGS, DEFAULT_SETTINGS, load } from '@ws-ui/webform-editor';
 
 const commonSettings: TSetting[] = [
   {
-    key: 'name',
-    label: 'Name',
-    type: ESetting.TEXT_FIELD,
-    defaultValue: 'Qodly',
+    key: 'language',
+    label: 'Language',
+    type: ESetting.SELECT,
+    // navigator supported languages
+    options:navigator.languages.map((lang) => ({ label: lang, value: lang })),
+    defaultValue: 'en-US',
   },
 ];
 
