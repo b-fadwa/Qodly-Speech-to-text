@@ -50,6 +50,7 @@ const SpeechToText: FC<ISpeechToTextProps> = ({ language,style, className, class
 
   //set datasource
   useEffect(() => {
+    if(!ds) return
     if (!isListening) {
       ds.setValue(null, transcript);
     }
