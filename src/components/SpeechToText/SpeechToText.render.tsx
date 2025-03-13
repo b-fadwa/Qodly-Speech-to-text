@@ -6,7 +6,7 @@ import { ISpeechToTextProps } from './SpeechToText.config';
 import { FaMicrophone } from 'react-icons/fa';
 import { FaMicrophoneLinesSlash } from 'react-icons/fa6';
 
-const SpeechToText: FC<ISpeechToTextProps> = ({ language,style, className, classNames = [] }) => {
+const SpeechToText: FC<ISpeechToTextProps> = ({ language, style, className, classNames = [] }) => {
   const { connect } = useRenderer();
   const [isListening, setIsListening] = useState<boolean>(false);
   const [transcript, setTranscript] = useState<string>('');
@@ -27,7 +27,7 @@ const SpeechToText: FC<ISpeechToTextProps> = ({ language,style, className, class
 
     recognitionInstance.continuous = true;
     recognitionInstance.interimResults = true;
-    recognitionInstance.lang = language; 
+    recognitionInstance.lang = language;
 
     recognitionInstance.onresult = (event: any) => {
       let finalTranscript = '';
@@ -50,24 +50,21 @@ const SpeechToText: FC<ISpeechToTextProps> = ({ language,style, className, class
 
   //set datasource
   useEffect(() => {
-    if(!ds) return
+    if (!ds) return;
     if (!isListening) {
       ds.setValue(null, transcript);
     }
   }, [isListening, transcript]);
 
-  const startListening = () => {
+  const toggleListening = () => {
     if (recognition) {
-      recognition.start();
-      setIsListening(true);
-      setMessage('Listening...');
-    }
-  };
-
-  const stopListening = () => {
-    if (recognition) {
-      recognition.stop();
-      setIsListening(false);
+      if (isListening) {
+        recognition.stop();
+      } else {
+        recognition.start();
+        setMessage('Listening...');
+      }
+      setIsListening(!isListening);
     }
   };
 
@@ -75,22 +72,9 @@ const SpeechToText: FC<ISpeechToTextProps> = ({ language,style, className, class
     <div ref={connect} style={style} className={cn(className, classNames)}>
       <div className="speech-to-text flex flex-col gap-5">
         <div className="speech-buttons flex justify-between w-40">
-          <button
-            onClick={startListening}
-            disabled={isListening}
-            className="start-button border rounded-xl p-4"
-          >
-            <FaMicrophone />
+          <button className="toggle-button border rounded-xl p-4" onClick={toggleListening}>
+            {isListening ? <FaMicrophoneLinesSlash /> : <FaMicrophone />}
           </button>
-          {isListening && (
-            <button
-              onClick={stopListening}
-              disabled={!isListening}
-              className="stop-button border rounded-xl p-4"
-            >
-              <FaMicrophoneLinesSlash />
-            </button>
-          )}
         </div>
         <div>
           <span className="transcript-content text-lg"> {transcript ? transcript : message}</span>

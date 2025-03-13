@@ -4,7 +4,6 @@ import { FC } from 'react';
 
 import { ISpeechToTextProps } from './SpeechToText.config';
 import { FaMicrophone } from 'react-icons/fa';
-import { FaMicrophoneLinesSlash } from 'react-icons/fa6';
 
 const SpeechToText: FC<ISpeechToTextProps> = ({ style, className, classNames = [] }) => {
   const {
@@ -17,9 +16,6 @@ const SpeechToText: FC<ISpeechToTextProps> = ({ style, className, classNames = [
         <div className="speech-buttons flex justify-between w-40">
           <button className="start-button p-4 border rounded-xl">
             <FaMicrophone />
-          </button>
-          <button className="stop-button p-4 border rounded-xl">
-            <FaMicrophoneLinesSlash />
           </button>
         </div>
         <div>

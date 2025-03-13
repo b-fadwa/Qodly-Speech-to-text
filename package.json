@@ -2,7 +2,7 @@
   "app_id": "qodly_09ecded7d0b696f40c23",
   "name": "speech-to-text",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "author": {
     "name": "Qodly Team",
