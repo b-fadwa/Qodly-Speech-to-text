@@ -19,3 +19,21 @@ The Sppech-To-Text component using the SpeechRecognition webkit,enables users to
 | ----------- | ---------------- | -------- | ------------------------------------------------------------------------- |
 | Qodlysource | string | Yes      | Will contain the converted text from the recognized speech |
 
+### Custom css
+
+```css
+/* to customize the style of the whole container */
+self .speech-to-text{
+	
+}
+
+/* to customize the style of the button */
+self .toggle-button{
+	
+}
+
+/* to customize the style of the text */
+self .transcript-content{
+	
+}
+```

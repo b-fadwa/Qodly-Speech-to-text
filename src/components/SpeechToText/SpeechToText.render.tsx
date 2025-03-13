@@ -71,11 +71,9 @@ const SpeechToText: FC<ISpeechToTextProps> = ({ language, style, className, clas
   return (
     <div ref={connect} style={style} className={cn(className, classNames)}>
       <div className="speech-to-text flex flex-col gap-5">
-        <div className="speech-buttons flex justify-between w-40">
-          <button className="toggle-button border rounded-xl p-4" onClick={toggleListening}>
+          <button className="toggle-button border rounded-xl p-4 w-fit" onClick={toggleListening}>
             {isListening ? <FaMicrophoneLinesSlash /> : <FaMicrophone />}
           </button>
-        </div>
         <div>
           <span className="transcript-content text-lg"> {transcript ? transcript : message}</span>
         </div>
