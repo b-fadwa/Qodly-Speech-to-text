@@ -60,6 +60,7 @@ const SpeechToText: FC<ISpeechToTextProps> = ({ language, style, className, clas
     if (recognition) {
       if (isListening) {
         recognition.stop();
+        setMessage('Start talking!');
       } else {
         recognition.start();
         setMessage('Listening...');
